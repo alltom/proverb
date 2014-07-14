@@ -1,12 +1,12 @@
 import Paths_proverb (getDataFileName)
 import System.Random (RandomGen, getStdGen, randomRs)
+import Data.Maybe (fromJust)
 
 main :: IO ()
 main = do
 	input <- getDataFileName "proverbs.txt" >>= readFile
 	gen <- getStdGen
-	let (Just item) = roulette (lines input) gen
-	putStrLn item
+	putStrLn $ fromJust $ roulette (lines input) gen
 
 roulette :: System.Random.RandomGen g => [a] -> g -> Maybe a
 roulette [] _ = Nothing
