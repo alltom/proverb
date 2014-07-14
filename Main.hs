@@ -10,9 +10,8 @@ main = do
 
 roulette :: RandomGen g => [a] -> g -> Maybe a
 roulette [] _ = Nothing
-roulette items gen =
-	let ((item, _):rest) = zip items (randomRs (0, 1) gen) in
-	Just $ roulette' 2 item rest
+roulette (item:items) gen =
+	Just $ roulette' 2 item (zip items (randomRs (0, 1) gen))
 
 roulette' :: Int -> t -> [(t, Float)] -> t
 roulette' _ chosen [] = chosen
