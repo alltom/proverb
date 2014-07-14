@@ -14,6 +14,8 @@ main = do
 roulette :: RandomGen g => [a] -> g -> Maybe a
 roulette [] _ = Nothing
 roulette (item:items) gen =
-	Just $ snd $ foldl' roulette' (2, item) (zip items ((randomRs (0, 1) gen) :: [Float]))
-	where roulette' (depth, chosen) (item, roll) =
-		(depth + 1, if roll < 1 / (fromIntegral depth) then item else chosen)
+	Just $ snd $ foldl' roulette' (2, item) itemsWithRolls
+	where
+		itemsWithRolls = zip items ((randomRs (0, 1) gen) :: [Float])
+		roulette' (depth, chosenItem) (item, roll) =
+			(depth + 1, if roll < 1 / (fromIntegral depth) then item else chosenItem)
