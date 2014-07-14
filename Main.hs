@@ -8,7 +8,7 @@ main = do
 	gen <- getStdGen
 	putStrLn $ fromJust $ roulette (lines input) gen
 
-roulette :: System.Random.RandomGen g => [a] -> g -> Maybe a
+roulette :: RandomGen g => [a] -> g -> Maybe a
 roulette [] _ = Nothing
 roulette items gen =
 	let ((item, _):rest) = zip items (randomRs (0, 1) gen) in
