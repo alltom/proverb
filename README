@@ -1,6 +1,15 @@
-References:
+References
+----------
 
-http://learnyouahaskell.com/input-and-output
-http://hackage.haskell.org/package/base-4.7.0.0/docs/Prelude.html#g:28
-http://www.theotherpages.org/quote-07.html
-http://stackoverflow.com/a/12361638/129889
+proverbs:
+	http://www.theotherpages.org/quote-07.html
+	http://stackoverflow.com/a/12361638/129889
+
+randomness:
+	http://learnyouahaskell.com/input-and-output
+
+reading from files:
+	http://hackage.haskell.org/package/base-4.7.0.0/docs/Prelude.html#g:28
+
+fromJust:
+	https://hackage.haskell.org/package/base-4.7.0.0/docs/Data-Maybe.html
