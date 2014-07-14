@@ -3,8 +3,7 @@ import System.Random (RandomGen, getStdGen, randomRs)
 
 main :: IO ()
 main = do
-	proverbsPath <- getDataFileName "proverbs.txt"
-	input <- readFile proverbsPath
+	input <- getDataFileName "proverbs.txt" >>= readFile
 	gen <- getStdGen
 	let (Just item) = roulette (lines input) gen
 	putStrLn item
